@@ -6,6 +6,9 @@ const { EleventyRenderPlugin } = require("@11ty/eleventy");
 
 module.exports = function (eleventyConfig) {
 
+  eleventyConfig.addPassthroughCopy("./src/images");
+  eleventyConfig.addPassthroughCopy("./src/admin");
+
   eleventyConfig.addGlobalData('env', process.env);
 
   eleventyConfig.addFilter("pluck", function (arr, value, attr) {

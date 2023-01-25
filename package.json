@@ -4,18 +4,18 @@
   "description": "",
   "main": ".eleventy.js",
   "scripts": {
-    "clean": "npx del public",
-    "watch:eleventy": "npx @11ty/eleventy --serve",
-    "prestart": "npm run clean",
-    "start": "npm-run-all --parallel watch:*",
-    "build": "npx @11ty/eleventy"
+    "dev": "tinacms dev -c \"npm start\"",
+    "build": "tinacms build && npx @11ty/eleventy",
+    "start": "tinacms build && npx @11ty/eleventy --serve"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@11ty/eleventy": "^2.0.0-beta.1",
-    "@11ty/eleventy-fetch": "^3.0.0"
+    "@11ty/eleventy-fetch": "^3.0.0",
+    "@tinacms/cli": "^1.0.6",
+    "tinacms": "^1.1.3"
   },
   "devDependencies": {
     "clean-css": "^5.1.3",
