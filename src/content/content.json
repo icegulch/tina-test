@@ -1,0 +1,6 @@
+{
+  "layout": "base.njk",
+  "permalink": false,
+  "date": "git Last Modified",
+  "tags": "posts"
+}

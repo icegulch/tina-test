@@ -1,0 +1,15 @@
+---
+layout: "base.njk"
+title: "Awesome Homepage"
+permalink: "/index.html"
+---
+
+<ol>
+{% for post in collections.posts %}
+  <li>
+    <a href="/posts/{{ post.data.title | slugify }}/">
+      {{ post.data.title }}
+    </a>
+  </li>
+{% endfor %}
+</ol>

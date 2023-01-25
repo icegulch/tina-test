@@ -1,0 +1,26 @@
+---
+layout: "base.njk"
+pagination:
+  data: collections.posts
+  size: 1
+  alias: post
+permalink: "/posts/{{ post.data.title | slugify }}/index.html"
+eleventyComputed:
+  title: "{{ post.data.title }}"
+---
+
+{{ post.content | markdownify | safe }}
+
+<nav aria-labelledby="my-pagination">
+  <h2 id="my-pagination">This is my Pagination</h2>
+  <ol>
+    <li>
+      <a href="/">
+        Homepage
+      </a>
+    </li>
+{%- for pageEntry in pagination.pages %}
+    <li><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}>Page {{ loop.index }}</a></li>
+{%- endfor %}
+  </ol>
+</nav>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>
+    {{ title }}
+  </title>
+  {% set css %}
+
+  {% endset %}
+  <style>
+    {% if env === 'production' %}
+      {{ css | cssmin | safe }}
+    {% else %}
+      {{ css | safe }}
+    {% endif %}
+  </style>
+</head>
+<body>
+
+  <main class="site-main" role="main">
+    <h1>{{ title }}</h1>
+    {% block content %}
+      {{ content | safe }}
+    {% endblock %}
+  </main>
+
+</body>
+</html>
